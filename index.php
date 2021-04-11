@@ -23,7 +23,7 @@
       <tr><th>NO</th><th>Nama Produk</th><th>Keterangan</th><th>Harga</th><th>Jumlah</th><th>Edit/Delete</th></tr>
      
       <?php
-      include 'koneksi.php';
+      require 'koneksi.php';
       $datas = mysqli_query($connect, "SELECT * from tb_produk");
       foreach($datas as $data ){
            echo "<tr>
@@ -32,8 +32,8 @@
           <td>".$data['keterangan']."</td>
           <td>".$data['harga']."</td>
           <td>".$data['jumlah']."</td>
-          <td><a href=''>Edit</a>
-          <a href=''>Delete</a>
+          <td><a href='edit.php?id_produk=$data[id_produk]'>Edit</a>
+          <a href='proses.php?id_produk=$data[id_produk]&delete=delete'>Delete</a>
           </td>
           ";
       }
